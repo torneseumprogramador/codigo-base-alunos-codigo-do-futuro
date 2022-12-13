@@ -12,7 +12,19 @@ class Program
     public const string CAMINHO_ARQUIVO = "/Users/danilo/Desktop/codigo-do-futuro/dotnet/basico/imports";
     static void Main(string[] args)
     {
-        
+        var nivaldo = new Cliente()
+        {
+            Nome = "Nivaldo", Telefone = "(11)11111-1111"
+        };
+        Console.WriteLine(nivaldo.ClientePorCompleto("Cliente Nivaldo instancia: "));
+
+        var leticia = new Cliente()
+        {
+            Nome = "Leticia", Telefone = "(11)11111-1111"
+        };
+
+        Console.WriteLine(leticia.ClientePorCompleto());
+
         string conteudoDoArquivo = """
         {"nome": "Danilo", "telefone": "123432123"}
         """;
@@ -21,6 +33,9 @@ class Program
         {
             PropertyNameCaseInsensitive = true
         });
+
+
+        var json = JsonSerializer.Serialize(cliente);
 
         // var lista = Recursiva.CalculaValores(new List<double>());
 
