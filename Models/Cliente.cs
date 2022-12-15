@@ -2,11 +2,12 @@ using Basico.Interces;
 
 namespace Basico.Models;
 
-public class Cliente : IObjeto
+public class Cliente : Pessoa, IObjeto
 {
     public Cliente(){ }
     public Cliente(string _nome)
     { 
+        var lista = new List<Cliente>();
         this.Nome = _nome;
     }
     public Cliente(string _nome, string _telefone)
@@ -15,7 +16,11 @@ public class Cliente : IObjeto
         this.Telefone = _telefone;
     }
 
-    public string Nome { get;set; } = default!;
+    public string MetodoComDoisParametros(string nome, string sobrenome)
+    {
+        return $"{nome} {sobrenome}";
+    }
+
     public string Telefone { get;set; } = default!;
 
     public override string? ToString()
@@ -46,5 +51,15 @@ public class Cliente : IObjeto
     private string ClientePorCompleto4()
     {
         return $"Nome: {this.Nome} - Telefone: {this.Telefone}";
+    }
+
+    public override string NomeMaiusculo()
+    {
+        return this.Nome.ToUpper();
+    }
+
+    public override string NomeMinusculo()
+    {
+        return this.Nome.ToUpper();
     }
 }

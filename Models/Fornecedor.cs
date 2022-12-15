@@ -2,13 +2,23 @@ using Basico.Interces;
 
 namespace Basico.Models;
 
-public class Fornecedor : IObjeto
+public sealed class Fornecedor : Pessoa
 {
-    public string Nome { get;set; } = default!;
-    public string Telefone { get;set; } = default!;
+    public Fornecedor() { }
+    public Fornecedor(string nome): base(nome){ }
 
     public override string? ToString()
     {
         return this.Nome;
+    }
+
+    public override string NomeMinusculo()
+    {
+        return this.Nome.ToLower();
+    }
+
+    public override string NomeMaiusculo()
+    {
+        return this.Nome.ToUpper() + " --- " + base.NomeMaiusculo();
     }
 }

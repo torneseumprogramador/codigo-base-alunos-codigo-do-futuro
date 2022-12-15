@@ -13,19 +13,32 @@ class Program
     public const string CAMINHO_ARQUIVO = "/Users/danilo/Desktop/codigo-do-futuro/dotnet/basico/imports";
     static void Main(string[] args)
     {
+        var usuario = new Usuario();
+        // usuario.ClientePorCompleto3();
+
         var cliente = new Cliente
         {
             Nome = "Jucileia"
         };
 
-        GenericoServico.ImprimeNomeComReflaction(cliente);
+        // cliente.ClientePorCompleto3();
 
-        var fornecedor = new Fornecedor
-        {
-            Nome = "Didox Business"
-        };
+        cliente.NomeMaiusculo();
+        cliente.NomeMinusculo();
 
-        GenericoServico.ImprimeNomeComReflaction(fornecedor);
+        Unica.Get().Teste = "ssss";
+
+        GenericoServico.ImprimeNome(cliente);
+
+        var fornecedor = new Fornecedor("Didox Business");
+
+        Console.WriteLine(fornecedor.NomeMaiusculo());
+
+        GenericoServico.ImprimeNome(fornecedor);
+
+
+        GenericoServicoComGenerics<Cliente>.ImprimeNome(cliente);
+        GenericoServicoComGenerics<Fornecedor>.ImprimeNome(fornecedor);
 
 
         /*
