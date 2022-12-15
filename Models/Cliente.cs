@@ -1,6 +1,8 @@
+using Basico.Interces;
+
 namespace Basico.Models;
 
-public class Cliente 
+public class Cliente : IObjeto
 {
     public Cliente(){ }
     public Cliente(string _nome)
@@ -15,6 +17,11 @@ public class Cliente
 
     public string Nome { get;set; } = default!;
     public string Telefone { get;set; } = default!;
+
+    public override string? ToString()
+    {
+        return this.Nome;
+    }
 
     public string ClientePorCompleto()
     {

@@ -3,6 +3,7 @@ using Basico.Condicionais;
 using Basico.InterfaceComUsuario;
 using Basico.Models;
 using Basico.Recursividade;
+using Basico.Servicos;
 
 namespace basico;
 
@@ -12,6 +13,22 @@ class Program
     public const string CAMINHO_ARQUIVO = "/Users/danilo/Desktop/codigo-do-futuro/dotnet/basico/imports";
     static void Main(string[] args)
     {
+        var cliente = new Cliente
+        {
+            Nome = "Jucileia"
+        };
+
+        GenericoServico.ImprimeNomeComReflaction(cliente);
+
+        var fornecedor = new Fornecedor
+        {
+            Nome = "Didox Business"
+        };
+
+        GenericoServico.ImprimeNomeComReflaction(fornecedor);
+
+
+        /*
         var nivaldo = new Cliente()
         {
             Nome = "Nivaldo", Telefone = "(11)11111-1111"
@@ -20,7 +37,8 @@ class Program
 
         var leticia = new Cliente()
         {
-            Nome = "Leticia", Telefone = "(11)11111-1111"
+            Nome = "Leticia",
+            Telefone = "(11)11111-1111"
         };
 
         Console.WriteLine(leticia.ClientePorCompleto());
@@ -37,6 +55,8 @@ class Program
 
         var json = JsonSerializer.Serialize(cliente);
 
+        var x = "";
+
         // var lista = Recursiva.CalculaValores(new List<double>());
 
         // foreach(var item in lista)
@@ -49,6 +69,8 @@ class Program
         // UsandoCondicional.usandoSwitchParaOpcoesDeMenu();
         // utilizandoLoop();
         // var oQueRetornou = utilizandoArrayOuLista("ssss");
+
+        */
     }
 
     private static string utilizandoArrayOuLista(string outroNome)
